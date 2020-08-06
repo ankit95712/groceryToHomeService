@@ -1,16 +1,17 @@
 package com.groceryToHome.user.login;
 
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
 public class LoginController {
     private LoginService loginService;
 
-    @GetMapping("/login")
-    public LoginRequest loginUser() {
-        return loginService.getUserDetails();
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/login/{id}/{password}")
+    public LoginRequest loginUser(@PathVariable String id,
+                                  @PathVariable String password) throws Exception {
+        return loginService.getUserDetails(id, password);
     }
 }

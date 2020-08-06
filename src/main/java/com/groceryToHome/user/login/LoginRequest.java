@@ -1,5 +1,6 @@
 package com.groceryToHome.user.login;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,4 +15,7 @@ public class LoginRequest {
     private String gender;
     private String userId;
     private String emailId;
+
+    @JsonIgnore
+    private String password;
 }
