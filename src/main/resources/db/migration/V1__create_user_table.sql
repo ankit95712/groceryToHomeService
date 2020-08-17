@@ -13,5 +13,6 @@ CREATE TABLE USERS_DETAILS (
     EMAIL_ID varchar(255),
     USER_ID varchar(255),
     PASSWORD varchar(255),
+    ROLE_ID INT,
     PRIMARY KEY (ID)
 );
