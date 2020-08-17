@@ -1,16 +1,18 @@
 package com.groceryToHome.user.login;
 
-import com.groceryToHome.user.domain.UserDomain;
-import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import com.groceryToHome.user.domain.Users;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class LoginController {
-    private LoginService loginService;
-    private LoginRepository loginRepository;
+    private final LoginService loginService;
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/login/{id}/{password}")
@@ -20,10 +22,8 @@ public class LoginController {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("/login")
-    public List<UserDomain> login() throws Exception {
-        UserDomain userDomain = new UserDomain("Anki", "Sing", "9090", "female", "as@sxcds.com", "ankit", "ankit");
-        loginRepository.save(userDomain);
-        return loginRepository.findAll();
+    @GetMapping("/users")
+    public List<Users> login() {
+        return loginService.getUsers();
     }
 }

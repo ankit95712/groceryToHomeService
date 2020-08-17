@@ -1,11 +1,10 @@
 package com.groceryToHome.user.login;
 
-import com.groceryToHome.user.domain.UserDomain;
+import com.groceryToHome.user.domain.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
+@Repository
+interface LoginRepository extends JpaRepository<Users, Long> {
 
-public interface LoginRepository extends JpaRepository<UserDomain, Long> {
-    List<UserDomain> findAll();
-    UserDomain save(UserDomain userDomain);
 }

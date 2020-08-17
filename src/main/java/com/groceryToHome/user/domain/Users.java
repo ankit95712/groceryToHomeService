@@ -3,15 +3,17 @@ package com.groceryToHome.user.domain;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "USERS_DETAILS")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDomain {
+public class Users {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
@@ -19,8 +21,8 @@ public class UserDomain {
     @Column(name = "FIRST_NAME")
     private String firstName;
 
-    public UserDomain(String firstName, String lastName, String phoneNumber,
-                      String gender, String userId, String emailId, String password) {
+    public Users(String firstName, String lastName, String phoneNumber,
+                 String gender, String userId, String emailId, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
